@@ -8,21 +8,21 @@
             "browser": "chrome",
             "os": "Windows 10",
             "versions": [
-                "latest"
+                "latest-1"
             ]
         },
         {
             "browser": "firefox",
             "os": "Windows 10",
             "versions": [
-                "latest"
+                "latest-1"
             ]
         },
         {
             "browser": "edge",
             "os": "Windows 10",
             "versions": [
-                "latest"
+                "latest-1"
             ]
         }
     ],
