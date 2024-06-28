@@ -1,0 +1,28 @@
+const { chromium} = require('playwright');
+const percySnapshot = require('@percy/playwright');
+(async () => {
+    const browser = await chromium.launch();
+    const page = await browser.newPage();
+    await page.goto("https://www.bstackdemo.com/");
+    await page.locator('[id="\\32 "]').getByText("Add to cart").click();
+    await page.getByText("Checkout").click();
+    await page.locator("#username svg").click();
+    await page.locator("#react-select-2-option-0-0").click({ force: true });
+    await page.locator("#password svg").click({ force: true });
+    await page.locator("#react-select-3-option-0-0").click({ force: true });
+    await page.getByRole("button", { name: "Log In" }).click();
+    await page.getByLabel("First Name").click();
+    await page.getByLabel("First Name").fill("Varad");
+    await page.getByLabel("Last Name").click();
+    await page.getByLabel("Last Name").fill("Prabhu");
+    await page.getByLabel("Address").click();
+    await page.getByLabel("Address").fill("Dadar");
+    await page.getByLabel("State/Province").click();
+    await page.getByLabel("State/Province").fill("Maharashtra");
+    await page.getByLabel("Postal Code").click();
+    await page.getByLabel("Postal Code").fill("400028");
+    await page.getByRole("button", { name: "Submit" }).click();
+    await page.getByRole("button", { name: "Continue Shopping »" }).click();
+    await percySnapshot(page,'Order Purchased Successfully!!');
+    await page.close();
+})();
