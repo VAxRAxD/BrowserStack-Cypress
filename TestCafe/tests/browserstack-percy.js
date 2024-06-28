@@ -1,3 +1,4 @@
+import percySnapshot from "@percy/testcafe";
 import { Selector } from "testcafe";
 fixture`bstackdemo`.page`https://www.bstackdemo.com/`;
 test("BStack Demo test", async (t) => {
@@ -27,4 +28,5 @@ test("BStack Demo test", async (t) => {
       "400028"
     )
     .click(Selector("#checkout-shipping-continue"))
+  await percySnapshot(t, "Order Placed Successfully");
 });
